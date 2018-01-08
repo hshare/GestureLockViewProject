@@ -28,6 +28,7 @@ public class GestureLockView extends ViewGroup {
     private float outerMargin = 0;
     private BaseLineView baseLineView;
 
+
     public GestureLockView(Context context) {
         this(context, null, 0);
     }
