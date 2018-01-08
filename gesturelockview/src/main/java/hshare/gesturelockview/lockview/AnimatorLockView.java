@@ -6,14 +6,14 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.Log;
 
-import hshare.gesturelockview.base.BaseLockView;
+import hshare.gesturelockview.impl.LockViewImpl;
 
 
 /**
  * @author huzeliang
  *         2017-11-14 10:51:03
  */
-public class AnimatorLockView extends BaseLockView {
+public class AnimatorLockView extends LockViewImpl {
 
     private int radius;
     private int strokeWidth = 2;

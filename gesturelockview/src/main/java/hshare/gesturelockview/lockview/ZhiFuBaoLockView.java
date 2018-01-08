@@ -4,14 +4,14 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import hshare.gesturelockview.base.BaseLockView;
+import hshare.gesturelockview.impl.LockViewImpl;
 
 
 /**
  * @author huzeliang
  *         2017-11-14 10:51:03
  */
-public class ZhiFuBaoLockView extends BaseLockView {
+public class ZhiFuBaoLockView extends LockViewImpl {
 
     private int radius;
     private int strokeWidth = 4;

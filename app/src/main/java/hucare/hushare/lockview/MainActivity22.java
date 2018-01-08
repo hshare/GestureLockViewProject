@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import hshare.gesturelockview.GestureLockView;
-import hshare.gesturelockview.base.OnGestureCompleteListener;
+import hshare.gesturelockview.listener.OnGestureCompleteListener;
 
 public class MainActivity22 extends Activity {
     GestureLockView gestureLockView;

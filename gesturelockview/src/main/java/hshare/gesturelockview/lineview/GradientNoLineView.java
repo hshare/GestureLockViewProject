@@ -1,27 +1,18 @@
 package hshare.gesturelockview.lineview;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Point;
 import android.graphics.Shader;
-import android.text.TextUtils;
-import android.view.MotionEvent;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import hshare.gesturelockview.base.BaseLineView;
+import hshare.gesturelockview.impl.LineViewImpl;
 
 
 /**
  * @author huzeliang
  *         2017-11-14 18:27:53
  */
-public class GradientNoLineView extends BaseLineView {
+public class GradientNoLineView extends LineViewImpl {
 
 
     public GradientNoLineView(Context context) {

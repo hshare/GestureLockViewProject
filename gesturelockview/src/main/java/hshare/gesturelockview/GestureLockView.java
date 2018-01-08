@@ -3,18 +3,16 @@ package hshare.gesturelockview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import hshare.gesturelockview.base.IBaseLine;
-import hshare.gesturelockview.base.ILockView;
-import hshare.gesturelockview.base.OnGestureCompleteListener;
-import hshare.gesturelockview.base.OnGestureVerifyListener;
+import hshare.gesturelockview.base.BaseLineView;
+import hshare.gesturelockview.base.BaseLockView;
+import hshare.gesturelockview.listener.OnGestureCompleteListener;
+import hshare.gesturelockview.listener.OnGestureVerifyListener;
 
 
 /**
@@ -28,7 +26,7 @@ public class GestureLockView extends ViewGroup {
     private int pointWidth;
     private float innerMargin = 0;
     private float outerMargin = 0;
-    private IBaseLine baseLineView;
+    private BaseLineView baseLineView;
 
     public GestureLockView(Context context) {
         this(context, null, 0);
@@ -60,9 +58,9 @@ public class GestureLockView extends ViewGroup {
 
         if (baseLineView != null && !isInit) {
             isInit = true;
-            List<ILockView> lockViews = new ArrayList<>();
+            List<BaseLockView> lockViews = new ArrayList<>();
             for (int i = 0; i < 9; i++) {
-                ILockView lockPointView = GestureLockHelper.getInstance().getLockView(getContext(), getTag());
+                BaseLockView lockPointView = GestureLockHelper.getInstance().getLockView(getContext(), getTag());
                 lockPointView.setId(i + 1);
                 this.addView((View) lockPointView);
                 lockViews.add(lockPointView);

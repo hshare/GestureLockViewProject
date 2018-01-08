@@ -2,8 +2,8 @@ package hshare.gesturelockview;
 
 import android.content.Context;
 
-import hshare.gesturelockview.base.IBaseLine;
-import hshare.gesturelockview.base.ILockView;
+import hshare.gesturelockview.base.BaseLineView;
+import hshare.gesturelockview.base.BaseLockView;
 import hshare.gesturelockview.lineview.NormalLineView;
 import hshare.gesturelockview.lockview.NormalLockView;
 
@@ -24,9 +24,9 @@ public class GestureLockHelper {
     }
 
     public interface OnGestureLockNewListener {
-        ILockView onLockViewNew(Context context, Object tag);
+        BaseLockView onLockViewNew(Context context, Object tag);
 
-        IBaseLine onLineViewNew(Context context, Object tag);
+        BaseLineView onLineViewNew(Context context, Object tag);
     }
 
     public static GestureLockHelper getInstance() {
@@ -36,9 +36,9 @@ public class GestureLockHelper {
         return LOCKVIEWHELPER;
     }
 
-    public ILockView getLockView(Context context, Object tag) {
+    public BaseLockView getLockView(Context context, Object tag) {
         if (onLockViewNewListener != null) {
-            ILockView lockView = onLockViewNewListener.onLockViewNew(context, tag);
+            BaseLockView lockView = onLockViewNewListener.onLockViewNew(context, tag);
             if (lockView == null) {
                 return new NormalLockView(context);
             }
@@ -47,9 +47,9 @@ public class GestureLockHelper {
         return new NormalLockView(context);
     }
 
-    public IBaseLine getLineView(Context context, Object tag) {
+    public BaseLineView getLineView(Context context, Object tag) {
         if (onLockViewNewListener != null) {
-            IBaseLine baseLine = onLockViewNewListener.onLineViewNew(context, tag);
+            BaseLineView baseLine = onLockViewNewListener.onLineViewNew(context, tag);
             if (baseLine == null) {
                 return new NormalLineView(context);
             }

@@ -3,14 +3,14 @@ package hshare.gesturelockview.lineview;
 import android.content.Context;
 import android.graphics.Paint;
 
-import hshare.gesturelockview.base.BaseLineView;
+import hshare.gesturelockview.impl.LineViewImpl;
 
 
 /**
  * @author huzeliang
  *         2017-11-14 18:27:53
  */
-public class NormalLineView extends BaseLineView {
+public class NormalLineView extends LineViewImpl {
 
     private int selectedLineColor = 0xFF000000;
     private int errorLineColor = 0xFFFF0000;

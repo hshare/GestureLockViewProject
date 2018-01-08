@@ -1,80 +1,39 @@
 package hshare.gesturelockview.base;
 
 import android.content.Context;
-import android.graphics.Canvas;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
 import android.view.View;
 
 /**
- * base lock view
+ * lock view
  *
  * @author huzeliang
- *         2017-11-14 10:35:16
+ * @version 1.0 2017-11-13 10:07:13
+ * @see ***
+ * @since ***
  */
-public abstract class BaseLockView extends View implements ILockView {
-
-    /**
-     * state for lock view
-     */
-    private State lockState = State.STATE_NORMAL;
-
-    @Override
-    public void setState(State state) {
-        this.lockState = state;
-        invalidate();
-    }
-
-    @Override
-    public State getState() {
-        return lockState;
-    }
+public abstract class BaseLockView extends View {
 
     public BaseLockView(Context context) {
         super(context);
     }
 
-    @Override
-    protected final void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-        int childWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int childHeight = MeasureSpec.getSize(heightMeasureSpec);
-
-        childWidth = childWidth < childHeight ? childWidth : childHeight;
-        setMeasuredDimension(childWidth, childHeight);
-
-        afterMeasure(childWidth, childHeight);
+    public BaseLockView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
     }
 
-    @Override
-    protected final void onDraw(Canvas canvas) {
-        switch (getState()) {
-            case STATE_SELECTED:
-                onStateSelect(canvas);
-                break;
-            case STATE_ERROR:
-                onStateError(canvas);
-                break;
-            case STATE_NORMAL:
-                onStateNormal(canvas);
-                break;
-            default:
-                break;
-        }
+    public BaseLockView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        onDestroy();
+    public enum State {
+        STATE_NORMAL, STATE_SELECTED, STATE_ERROR
     }
 
-    public abstract void onStateError(Canvas canvas);
+    public abstract void setState(State state);
 
-    public abstract void onStateSelect(Canvas canvas);
+    public abstract State getState();
 
-    public abstract void onStateNormal(Canvas canvas);
 
-    public abstract void afterMeasure(int childWidth, int childHeight);
-
-    public abstract void onDestroy();
 }

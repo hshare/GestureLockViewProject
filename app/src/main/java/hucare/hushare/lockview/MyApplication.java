@@ -4,11 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import hshare.gesturelockview.GestureLockHelper;
-import hshare.gesturelockview.base.BaseLineView;
-import hshare.gesturelockview.base.ILockView;
-import hshare.gesturelockview.lineview.GradientNoLineView;
-import hshare.gesturelockview.lineview.NormalLineView;
-import hshare.gesturelockview.lockview.AnimatorLockView;
+import hshare.gesturelockview.impl.LineViewImpl;
+import hshare.gesturelockview.base.BaseLockView;
 
 
 /**
@@ -27,7 +24,7 @@ public class MyApplication extends Application {
 
         GestureLockHelper.getInstance().setOnLockViewNewListener(new GestureLockHelper.OnGestureLockNewListener() {
             @Override
-            public ILockView onLockViewNew(Context context, Object tag) {
+            public BaseLockView onLockViewNew(Context context, Object tag) {
 //                ZhiFuBaoLockView lockView = new ZhiFuBaoLockView(context);
 //                lockView.setColorNormal(Color.parseColor("#1B94EA"));
 //                lockView.setColorSelected(Color.parseColor("#108EE9"));
@@ -38,7 +35,7 @@ public class MyApplication extends Application {
             }
 
             @Override
-            public BaseLineView onLineViewNew(Context context, Object tag) {
+            public LineViewImpl onLineViewNew(Context context, Object tag) {
 //                NormalLineView normalLineView = new NormalLineView(context);
 //                normalLineView.setErrorDelay(3000);
 //                normalLineView.setSelectedLineColor(Color.parseColor("#108EE9"));

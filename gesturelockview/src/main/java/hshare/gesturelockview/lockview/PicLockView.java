@@ -7,7 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 
 import hshare.gesturelockview.R;
-import hshare.gesturelockview.base.BaseLockView;
+import hshare.gesturelockview.impl.LockViewImpl;
 
 
 /**
@@ -18,7 +18,7 @@ import hshare.gesturelockview.base.BaseLockView;
  * @see ***
  * @since ***
  */
-public class PicLockView extends BaseLockView {
+public class PicLockView extends LockViewImpl {
 
     private Bitmap bmp1;
     private Bitmap bmp2;
