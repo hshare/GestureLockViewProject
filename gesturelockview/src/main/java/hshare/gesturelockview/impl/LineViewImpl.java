@@ -226,7 +226,7 @@ public abstract class LineViewImpl extends BaseLineView {
             case MotionEvent.ACTION_DOWN:
                 reset();
                 isDrag = false;
-                if ((dragView = (View) getChildIdByPos(x, y)) != null) {
+                if ((dragView =  getChildIdByPos(x, y)) != null) {
                     postDelayed(longClickRunnable, 2000);
                     mPoint2ItemTop = downY - dragView.getTop();
                     mPoint2ItemLeft = downX - dragView.getLeft();
