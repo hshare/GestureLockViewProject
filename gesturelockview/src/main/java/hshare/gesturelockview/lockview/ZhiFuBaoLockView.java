@@ -19,9 +19,9 @@ public class ZhiFuBaoLockView extends LockViewImpl {
     private int centerY;
     private Paint paint;
     private float innerCircleRadiusRate = 0.3F;
-    private int colorNormal = 0xFFFFFFFF;
-    private int colorSelected = 0xFFFFFFFF;
-    private int colorError = 0xFFFFFFFF;
+    private int colorNormal = 0xFF1B94EA;
+    private int colorSelected = 0xFF108EE9;
+    private int colorError = 0xFFF84545;
 
     public ZhiFuBaoLockView(Context context) {
         super(context);

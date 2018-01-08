@@ -21,6 +21,15 @@ public class NormalLineView extends LineViewImpl {
         super(context);
     }
 
+    public NormalLineView(Context context, int selectedLineColor, int errorLineColor, int errorDelay, int lineAlpha,int lineWidth) {
+        super(context);
+        this.selectedLineColor = selectedLineColor;
+        this.errorLineColor = errorLineColor;
+        this.errorDelay = errorDelay;
+        this.lineAlpha = lineAlpha;
+        setLineWidthDp(lineWidth);
+    }
+
 
     @Override
     protected void setErrorPaint(Paint connectPaint, Paint movePaint) {
@@ -59,6 +68,8 @@ public class NormalLineView extends LineViewImpl {
 
     public void setLineWidthDp(float lineWidth) {
         this.lineWidth = dip2px(lineWidth);
+        paint1.setStrokeWidth(this.lineWidth);
+        paint2.setStrokeWidth(this.lineWidth);
     }
 
     public void setLineAlpha(int lineAlpha) {

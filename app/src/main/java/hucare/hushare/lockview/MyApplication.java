@@ -2,10 +2,16 @@ package hucare.hushare.lockview;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Color;
 
 import hshare.gesturelockview.GestureLockHelper;
 import hshare.gesturelockview.impl.LineViewImpl;
 import hshare.gesturelockview.base.BaseLockView;
+import hshare.gesturelockview.lineview.GradientNoLineView;
+import hshare.gesturelockview.lineview.NormalLineView;
+import hshare.gesturelockview.lockview.AnimatorLockView;
+import hshare.gesturelockview.lockview.PicLockView;
+import hshare.gesturelockview.lockview.ZhiFuBaoLockView;
 
 
 /**
@@ -25,26 +31,46 @@ public class MyApplication extends Application {
         GestureLockHelper.getInstance().setOnLockViewNewListener(new GestureLockHelper.OnGestureLockNewListener() {
             @Override
             public BaseLockView onLockViewNew(Context context, Object tag) {
-//                ZhiFuBaoLockView lockView = new ZhiFuBaoLockView(context);
-//                lockView.setColorNormal(Color.parseColor("#1B94EA"));
-//                lockView.setColorSelected(Color.parseColor("#108EE9"));
-//                lockView.setColorError(Color.parseColor("#F84545"));
-//                return lockView;
-//                return new PicLockView(context);
-                return null;
+                switch ("" + tag) {
+                    case "默认":
+                        return null;
+                    case "京东金融":
+                        return null;
+                    case "国元OA":
+                        return null;
+                    case "支付宝":
+                        return new ZhiFuBaoLockView(context);
+                    case "动画圆圈":
+                        return new AnimatorLockView(context);
+                    case "图片圆圈":
+                        return new PicLockView(context);
+                    case "渐变线条":
+                        return null;
+                    default:
+                        return null;
+                }
             }
 
             @Override
             public LineViewImpl onLineViewNew(Context context, Object tag) {
-//                NormalLineView normalLineView = new NormalLineView(context);
-//                normalLineView.setErrorDelay(3000);
-//                normalLineView.setSelectedLineColor(Color.parseColor("#108EE9"));
-//                normalLineView.setErrorLineColor(Color.parseColor("#F84545"));
-//                normalLineView.setLineWidthDp(2);
-//                normalLineView.setLineAlpha(255);
-//                normalLineView.setPadding(20);
-//                return new GradientNoLineView(context);
-                return null;
+                switch ("" + tag) {
+                    case "默认":
+                        return null;
+                    case "京东金融":
+                        return null;
+                    case "国元OA":
+                        return new NormalLineView(context, 0xFF2D8FDB, 0xFFF5A52A, 3000, 155,8);
+                    case "支付宝":
+                        return new NormalLineView(context, 0xFF108EE9, 0xFFF84545, 3000, 255,2);
+                    case "动画圆圈":
+                        return null;
+                    case "图片圆圈":
+                        return new NormalLineView(context, 0xFFFF8F09, 0xFFEF0E23, 3000, 155,8);
+                    case "渐变线条":
+                        return new GradientNoLineView(context);
+                    default:
+                        return null;
+                }
             }
         });
     }

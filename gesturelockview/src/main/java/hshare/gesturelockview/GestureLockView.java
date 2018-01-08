@@ -43,7 +43,13 @@ public class GestureLockView extends ViewGroup {
         innerMargin = a.getDimension(R.styleable.GestureLockView_innerMargin, innerMargin);
         outerMargin = a.getDimension(R.styleable.GestureLockView_outerMargin, outerMargin);
         a.recycle();
-        baseLineView = GestureLockHelper.getInstance().getLineView(getContext(), getTag());
+    }
+
+    private BaseLineView getBaseLineView(){
+        if (baseLineView == null){
+            baseLineView = GestureLockHelper.getInstance().getLineView(getContext(), getTag());
+        }
+        return baseLineView;
     }
 
     private boolean isInit = false;
@@ -57,7 +63,7 @@ public class GestureLockView extends ViewGroup {
         width = height = width > height ? height : width;
         pointWidth = (int) ((width - innerMargin * 2 - outerMargin * 2) / (3.0));
 
-        if (baseLineView != null && !isInit) {
+        if (getBaseLineView() != null && !isInit) {
             isInit = true;
             List<BaseLockView> lockViews = new ArrayList<>();
             for (int i = 0; i < 9; i++) {
@@ -66,8 +72,8 @@ public class GestureLockView extends ViewGroup {
                 this.addView(lockPointView);
                 lockViews.add(lockPointView);
             }
-            this.addView(baseLineView);
-            baseLineView.initLockViews(lockViews, pointWidth);
+            this.addView(getBaseLineView());
+            getBaseLineView().initLockViews(lockViews, pointWidth);
         }
 
         setMeasuredDimension(width, height);
@@ -105,10 +111,10 @@ public class GestureLockView extends ViewGroup {
     }
 
     public void setOnGestureVerifyListener(String password, OnGestureVerifyListener onGestureVerifyListener) {
-        baseLineView.setOnGestureVerifyListener(password, onGestureVerifyListener);
+        getBaseLineView().setOnGestureVerifyListener(password, onGestureVerifyListener);
     }
 
     public void setOnGestureCompleteListener(OnGestureCompleteListener onGestureCompleteListener) {
-        baseLineView.setOnGestureCompleteListener(onGestureCompleteListener);
+        getBaseLineView().setOnGestureCompleteListener(onGestureCompleteListener);
     }
 }
