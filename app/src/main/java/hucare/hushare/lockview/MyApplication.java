@@ -10,6 +10,7 @@ import hshare.gesturelockview.base.BaseLockView;
 import hshare.gesturelockview.lineview.GradientNoLineView;
 import hshare.gesturelockview.lineview.NormalLineView;
 import hshare.gesturelockview.lockview.AnimatorLockView;
+import hshare.gesturelockview.lockview.JDLockView;
 import hshare.gesturelockview.lockview.PicLockView;
 import hshare.gesturelockview.lockview.ZhiFuBaoLockView;
 
@@ -35,9 +36,9 @@ public class MyApplication extends Application {
                     case "默认":
                         return null;
                     case "京东金融":
-                        return null;
+                        return new JDLockView(context);
                     case "国元OA":
-                        return null;
+                        return new JDLockView(context,0xFFD7DAEB, 0xFF2D8FDB,0xFFF4F7FE, 0xFFF5A52A);
                     case "支付宝":
                         return new ZhiFuBaoLockView(context);
                     case "动画圆圈":
@@ -57,7 +58,7 @@ public class MyApplication extends Application {
                     case "默认":
                         return null;
                     case "京东金融":
-                        return null;
+                        return new NormalLineView(context, 0xFF4D7BFE, 0xFFF84545, 3000, 255,3);
                     case "国元OA":
                         return new NormalLineView(context, 0xFF2D8FDB, 0xFFF5A52A, 3000, 155,8);
                     case "支付宝":

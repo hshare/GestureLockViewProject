@@ -3,6 +3,7 @@ package hshare.gesturelockview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -117,4 +118,11 @@ public class GestureLockView extends ViewGroup {
     public void setOnGestureCompleteListener(OnGestureCompleteListener onGestureCompleteListener) {
         getBaseLineView().setOnGestureCompleteListener(onGestureCompleteListener);
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        getParent().requestDisallowInterceptTouchEvent(true);
+        return super.dispatchTouchEvent(ev);
+    }
+
 }

@@ -159,6 +159,7 @@ public abstract class LineViewImpl extends BaseLineView {
                 setMovePaint(paint1, paint2);
                 BaseLockView child = getChildIdByPos(x, y);
                 if (child != null) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
                     int cId = child.getId();
                     if (!chooseList.contains(cId)) {
                         chooseList.add(cId);

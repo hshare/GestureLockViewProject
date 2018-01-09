@@ -5,8 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/GestureLockViewProject.iml" filepath="$PROJECT_DIR$/GestureLockViewProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/GestureLockViewProject1.iml" filepath="$PROJECT_DIR$/GestureLockViewProject1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gesturelockview/gesturelockview.iml" filepath="$PROJECT_DIR$/gesturelockview/gesturelockview.iml" />
       <module fileurl="file://$PROJECT_DIR$/gesturelockview/gesturelockview.iml" filepath="$PROJECT_DIR$/gesturelockview/gesturelockview.iml" />
     </modules>
   </component>
