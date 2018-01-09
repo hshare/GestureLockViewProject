@@ -8,7 +8,6 @@ import hshare.gesturelockview.impl.LineViewImpl;
 
 /**
  * @author huzeliang
- *         2017-11-14 18:27:53
  */
 public class NormalLineView extends LineViewImpl {
 

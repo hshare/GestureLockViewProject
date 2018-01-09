@@ -12,7 +12,6 @@ import hshare.gesturelockview.impl.LockViewImpl;
 
 /**
  * @author huzeliang
- *         2018-1-9 10:13:23
  */
 public class PicLockView extends LockViewImpl {
 

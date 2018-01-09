@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
-import android.text.TextUtils;
 import android.view.MotionEvent;
 
 import java.util.ArrayList;
@@ -18,7 +17,6 @@ import hshare.gesturelockview.listener.OnGestureCompleteListener;
 
 /**
  * @author huzeliang
- *         2017-11-14 18:27:04
  */
 public abstract class LineViewImpl extends BaseLineView {
 

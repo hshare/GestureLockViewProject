@@ -16,10 +16,7 @@ import hshare.gesturelockview.listener.OnGestureCompleteListener;
 
 
 /**
- * gesture lock view
- *
  * @author huzeliang
- *         2017-11-14 10:37:14
  */
 public class GestureLockView extends ViewGroup {
 

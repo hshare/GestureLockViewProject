@@ -2,7 +2,6 @@ package hucare.hushare.lockview;
 
 import android.app.Application;
 import android.content.Context;
-import android.graphics.Color;
 
 import hshare.gesturelockview.GestureLockHelper;
 import hshare.gesturelockview.impl.LineViewImpl;
@@ -16,12 +15,7 @@ import hshare.gesturelockview.lockview.ZhiFuBaoLockView;
 
 
 /**
- * 功能/模块 ：***
- *
  * @author huzeliang
- * @version 1.0 ${date} ${time}
- * @see ***
- * @since ***
  */
 public class MyApplication extends Application {
 

@@ -7,10 +7,7 @@ import android.view.View;
 import hshare.gesturelockview.base.BaseLockView;
 
 /**
- * base lock view
- *
  * @author huzeliang
- *         2017-11-14 10:35:16
  */
 public abstract class LockViewImpl extends BaseLockView {
 

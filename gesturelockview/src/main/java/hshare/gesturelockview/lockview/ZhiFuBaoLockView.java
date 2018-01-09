@@ -9,7 +9,6 @@ import hshare.gesturelockview.impl.LockViewImpl;
 
 /**
  * @author huzeliang
- *         2017-11-14 10:51:03
  */
 public class ZhiFuBaoLockView extends LockViewImpl {
 

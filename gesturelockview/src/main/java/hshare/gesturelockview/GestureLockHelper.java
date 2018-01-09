@@ -9,10 +9,7 @@ import hshare.gesturelockview.lockview.NormalLockView;
 
 
 /**
- * lock view helper
- *
  * @author huzeliang
- *         2017-11-14 10:48:04
  */
 public class GestureLockHelper {
 

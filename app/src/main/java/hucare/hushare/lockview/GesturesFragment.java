@@ -16,12 +16,7 @@ import hshare.gesturelockview.util.MD5Utils;
 import hshare.gesturelockview.util.SPUtils;
 
 /**
- * 功能/模块 ：***
- *
  * @author huzeliang
- * @version 1.0 ${date} ${time}
- * @see ***
- * @since ***
  */
 public class GesturesFragment extends Fragment {
 

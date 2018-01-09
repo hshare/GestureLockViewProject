@@ -10,7 +10,6 @@ import hshare.gesturelockview.impl.LineViewImpl;
 
 /**
  * @author huzeliang
- *         2017-11-14 18:27:53
  */
 public class GradientNoLineView extends LineViewImpl {
 
@@ -21,10 +20,6 @@ public class GradientNoLineView extends LineViewImpl {
 
     @Override
     protected void setErrorPaint(Paint connectPaint, Paint movePaint) {
-//        LinearGradient shader1 = new LinearGradient(0, 0, lineWidth, 0,
-//                new int[]{0xFFF1A8A8, 0xFFE23C3C, 0xFFFA0101}, null, Shader.TileMode.REPEAT);
-//        connectPaint.setShader(shader1);
-
         connectPaint.setColor(0xFFFF0000);
         connectPaint.setAlpha(150);
 

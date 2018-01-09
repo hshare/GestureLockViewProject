@@ -3,12 +3,7 @@ package hucare.hushare.lockview;
 import java.io.Serializable;
 
 /**
- * 功能/模块 ：***
- *
  * @author huzeliang
- * @version 1.0 ${date} ${time}
- * @see ***
- * @since ***
  */
 public class NormalViewPageBaseBean implements Serializable {
     private String title;
