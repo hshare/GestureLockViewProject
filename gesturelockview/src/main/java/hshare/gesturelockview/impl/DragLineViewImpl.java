@@ -23,7 +23,6 @@ import java.util.List;
 import hshare.gesturelockview.base.BaseLineView;
 import hshare.gesturelockview.base.BaseLockView;
 import hshare.gesturelockview.listener.OnGestureCompleteListener;
-import hshare.gesturelockview.listener.OnGestureVerifyListener;
 
 
 /**
@@ -33,8 +32,6 @@ import hshare.gesturelockview.listener.OnGestureVerifyListener;
 public abstract class DragLineViewImpl extends BaseLineView {
 
     protected List<BaseLockView> lockViews;
-    private String verifyPassword;
-    private OnGestureVerifyListener onGestureVerifyListener;
     private OnGestureCompleteListener onGestureCompleteListener;
     private int padding = 0;
     private int pointWidth = 0;
@@ -64,12 +61,6 @@ public abstract class DragLineViewImpl extends BaseLineView {
     public void initLockViews(List<BaseLockView> lockViews, int width) {
         this.lockViews = lockViews;
         pointWidth = width;
-    }
-
-    @Override
-    public void setOnGestureVerifyListener(String password, OnGestureVerifyListener onGestureVerifyListener) {
-        this.onGestureVerifyListener = onGestureVerifyListener;
-        this.verifyPassword = password;
     }
 
     @Override
@@ -282,34 +273,15 @@ public abstract class DragLineViewImpl extends BaseLineView {
                         for (int i = 0; i < chooseList.size(); i++) {
                             passWordSb.append((i == 0 ? "" : ",") + chooseList.get(i));
                         }
-                        if (!TextUtils.isEmpty(verifyPassword)) {
-                            if (verifyPassword.equals(passWordSb.toString())) {
-                                reset();
-                                if (onGestureVerifyListener != null) {
-                                    onGestureVerifyListener.onSuccess();
-                                }
-                            } else {
-                                if (onGestureVerifyListener != null) {
-                                    onGestureVerifyListener.onError();
-                                }
-                                setAllError();
-                            }
-                            if (onGestureCompleteListener != null) {
-                                onGestureCompleteListener.onOutputPassword(passWordSb.toString());
-                            }
+                        if (onGestureCompleteListener != null &&
+                                !onGestureCompleteListener.onOutputPassword(passWordSb.toString())) {
+                            setAllError();
                         } else {
-                            if (onGestureCompleteListener != null &&
-                                    !onGestureCompleteListener.onOutputPassword(passWordSb.toString())) {
-                                setAllError();
-                            } else {
-                                reset();
-                            }
+                            reset();
                         }
                     } else {
                     }
                 }
-
-
                 // 将终点设置位置为起点，即取消指引线
                 tmpTarget.x = lastPathX;
                 tmpTarget.y = lastPathY;

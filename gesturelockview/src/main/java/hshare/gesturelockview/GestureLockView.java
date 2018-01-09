@@ -13,7 +13,6 @@ import java.util.List;
 import hshare.gesturelockview.base.BaseLineView;
 import hshare.gesturelockview.base.BaseLockView;
 import hshare.gesturelockview.listener.OnGestureCompleteListener;
-import hshare.gesturelockview.listener.OnGestureVerifyListener;
 
 
 /**
@@ -46,8 +45,8 @@ public class GestureLockView extends ViewGroup {
         a.recycle();
     }
 
-    private BaseLineView getBaseLineView(){
-        if (baseLineView == null){
+    private BaseLineView getBaseLineView() {
+        if (baseLineView == null) {
             baseLineView = GestureLockHelper.getInstance().getLineView(getContext(), getTag());
         }
         return baseLineView;
@@ -111,17 +110,12 @@ public class GestureLockView extends ViewGroup {
         }
     }
 
-    public void setOnGestureVerifyListener(String password, OnGestureVerifyListener onGestureVerifyListener) {
-        getBaseLineView().setOnGestureVerifyListener(password, onGestureVerifyListener);
-    }
-
     public void setOnGestureCompleteListener(OnGestureCompleteListener onGestureCompleteListener) {
         getBaseLineView().setOnGestureCompleteListener(onGestureCompleteListener);
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-//        getParent().requestDisallowInterceptTouchEvent(true);
         return super.dispatchTouchEvent(ev);
     }
 

@@ -1,21 +1,12 @@
 package hshare.gesturelockview.impl;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.PixelFormat;
 import android.graphics.Point;
-import android.graphics.Rect;
-import android.os.Vibrator;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +14,6 @@ import java.util.List;
 import hshare.gesturelockview.base.BaseLineView;
 import hshare.gesturelockview.base.BaseLockView;
 import hshare.gesturelockview.listener.OnGestureCompleteListener;
-import hshare.gesturelockview.listener.OnGestureVerifyListener;
 
 
 /**
@@ -33,8 +23,6 @@ import hshare.gesturelockview.listener.OnGestureVerifyListener;
 public abstract class LineViewImpl extends BaseLineView {
 
     protected List<BaseLockView> lockViews;
-    private String verifyPassword;
-    private OnGestureVerifyListener onGestureVerifyListener;
     private OnGestureCompleteListener onGestureCompleteListener;
     private int padding = 0;
     private int pointWidth = 0;
@@ -61,12 +49,6 @@ public abstract class LineViewImpl extends BaseLineView {
     public void initLockViews(List<BaseLockView> lockViews, int width) {
         this.lockViews = lockViews;
         pointWidth = width;
-    }
-
-    @Override
-    public void setOnGestureVerifyListener(String password, OnGestureVerifyListener onGestureVerifyListener) {
-        this.onGestureVerifyListener = onGestureVerifyListener;
-        this.verifyPassword = password;
     }
 
     @Override
@@ -102,8 +84,6 @@ public abstract class LineViewImpl extends BaseLineView {
     }
 
     public void initPaint() {
-
-
         path = new Path();
         this.passWordSb = new StringBuilder();
         paint1 = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -190,28 +170,11 @@ public abstract class LineViewImpl extends BaseLineView {
                     for (int i = 0; i < chooseList.size(); i++) {
                         passWordSb.append((i == 0 ? "" : ",") + chooseList.get(i));
                     }
-                    if (!TextUtils.isEmpty(verifyPassword)) {
-                        if (verifyPassword.equals(passWordSb.toString())) {
-                            reset();
-                            if (onGestureVerifyListener != null) {
-                                onGestureVerifyListener.onSuccess();
-                            }
-                        } else {
-                            if (onGestureVerifyListener != null) {
-                                onGestureVerifyListener.onError();
-                            }
-                            setAllError();
-                        }
-                        if (onGestureCompleteListener != null) {
-                            onGestureCompleteListener.onOutputPassword(passWordSb.toString());
-                        }
+                    if (onGestureCompleteListener != null &&
+                            !onGestureCompleteListener.onOutputPassword(passWordSb.toString())) {
+                        setAllError();
                     } else {
-                        if (onGestureCompleteListener != null &&
-                                !onGestureCompleteListener.onOutputPassword(passWordSb.toString())) {
-                            setAllError();
-                        } else {
-                            reset();
-                        }
+                        reset();
                     }
                 } else {
                 }

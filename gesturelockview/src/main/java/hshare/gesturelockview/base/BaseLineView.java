@@ -8,7 +8,6 @@ import android.view.View;
 import java.util.List;
 
 import hshare.gesturelockview.listener.OnGestureCompleteListener;
-import hshare.gesturelockview.listener.OnGestureVerifyListener;
 
 /**
  * @author huzeliang
@@ -27,8 +26,6 @@ public abstract class BaseLineView extends View {
     }
 
     public abstract void initLockViews(List<BaseLockView> lockViews, int pointWidth);
-
-    public abstract void setOnGestureVerifyListener(String password, OnGestureVerifyListener onGestureVerifyListener);
 
     public abstract void setOnGestureCompleteListener(OnGestureCompleteListener onGestureCompleteListener);
 }

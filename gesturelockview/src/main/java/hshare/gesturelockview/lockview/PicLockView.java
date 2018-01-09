@@ -11,12 +11,8 @@ import hshare.gesturelockview.impl.LockViewImpl;
 
 
 /**
- * 功能/模块 ：***
- *
  * @author huzeliang
- * @version 1.0 ${date} ${time}
- * @see ***
- * @since ***
+ *         2018-1-9 10:13:23
  */
 public class PicLockView extends LockViewImpl {
 
