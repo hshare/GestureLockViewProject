@@ -28,7 +28,9 @@ import hshare.gesturelockview.listener.OnGestureCompleteListener;
 /**
  * @author huzeliang
  *         2017-11-14 18:27:04
+ *
  */
+@Deprecated
 public abstract class DragLineViewImpl extends BaseLineView {
 
     protected List<BaseLockView> lockViews;
